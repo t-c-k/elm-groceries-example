@@ -29,6 +29,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.placeholder {
+  text-align: center;
+  font-size: 50px;
+  width: 100%;
+  color: #999;
+}
+
 .cart-title {
   height: 50px;
   font-size: 30px;

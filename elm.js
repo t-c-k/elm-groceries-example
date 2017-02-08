@@ -9167,7 +9167,9 @@ var _user$project$Main$update = F2(
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
-						{items: _p0._0._0}),
+						{
+							items: _elm_lang$core$Maybe$Just(_p0._0._0)
+						}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			} else {
@@ -9175,8 +9177,8 @@ var _user$project$Main$update = F2(
 					_elm_lang$core$Native_Utils.crash(
 						'Main',
 						{
-							start: {line: 56, column: 13},
-							end: {line: 56, column: 24}
+							start: {line: 59, column: 13},
+							end: {line: 59, column: 24}
 						}),
 					'GET',
 					'Failed to fetch items');
@@ -9250,7 +9252,27 @@ var _user$project$Main$viewItem = function (item) {
 		});
 };
 var _user$project$Main$viewItems = function (items) {
-	return A2(_elm_lang$core$List$map, _user$project$Main$viewItem, items);
+	var _p1 = items;
+	if (_p1.ctor === 'Nothing') {
+		return {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('placeholder'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Loading...'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		};
+	} else {
+		return A2(_elm_lang$core$List$map, _user$project$Main$viewItem, _p1._0);
+	}
 };
 var _user$project$Main$view = function (model) {
 	return A2(
@@ -9347,7 +9369,7 @@ var _user$project$Main$init = {
 	ctor: '_Tuple2',
 	_0: A2(
 		_user$project$Main$Model,
-		{ctor: '[]'},
+		_elm_lang$core$Maybe$Nothing,
 		{ctor: '[]'}),
 	_1: _user$project$Main$getItems
 };

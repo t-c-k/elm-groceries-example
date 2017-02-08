@@ -19,6 +19,9 @@ main =
 -- MODEL
 
 
+type alias ListOfItems = Maybe (List Item)
+
+
 type alias Item =
     { name : String
     , price : Int
@@ -27,14 +30,14 @@ type alias Item =
 
 
 type alias Model =
-    { items : List Item
+    { items : ListOfItems
     , cart : List Item
     }
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( Model [] [], getItems )
+    ( Model Nothing [], getItems )
 
 
 -- UPDATE
@@ -51,7 +54,7 @@ update msg model =
         AddToCart item ->
             ( { model | cart = model.cart ++ [item] }, Cmd.none )
         ReceiveItems (Ok items) ->
-            ( { model | items = items }, Cmd.none )
+            ( { model | items = Just items }, Cmd.none )
         ReceiveItems (Err _) ->
             Debug.crash "GET" "Failed to fetch items"
 
@@ -84,9 +87,13 @@ viewItem item =
         ]
 
 
-viewItems : List Item -> List (Html Msg)
+viewItems : ListOfItems -> List (Html Msg)
 viewItems items =
-    List.map viewItem items
+    case items of
+        Nothing ->
+            [ div [ class "placeholder" ] [ text "Loading..." ] ]
+        Just itemList ->
+            List.map viewItem itemList
 
 
 viewCartPrice : List Item -> Html Msg
