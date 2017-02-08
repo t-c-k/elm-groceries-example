@@ -2,41 +2,41 @@
     {
         "name": "Banana",
         "price": 1,
-        "image_url": "/img/bananas.jpg"
+        "image_url": "img/bananas.jpg"
     },
     {
         "name": "Celery",
         "price": 1,
-        "image_url": "/img/celery.jpg"
+        "image_url": "img/celery.jpg"
     },
     {
         "name": "Grapes",
         "price": 2,
-        "image_url": "/img/grapes.jpg"
+        "image_url": "img/grapes.jpg"
     },
     {
         "name": "Apples",
         "price": 2,
-        "image_url": "/img/apples.jpg"
+        "image_url": "img/apples.jpg"
     },
     {
         "name": "Oranges",
         "price": 2,
-        "image_url": "/img/oranges.jpg"
+        "image_url": "img/oranges.jpg"
     },
     {
         "name": "Pasta",
         "price": 3,
-        "image_url": "/img/pasta.jpg"
+        "image_url": "img/pasta.jpg"
     },
     {
         "name": "Potato",
         "price": 2,
-        "image_url": "/img/potato.jpeg"
+        "image_url": "img/potato.jpeg"
     },
     {
         "name": "Tomato",
         "price": 1,
-        "image_url": "/img/tomato.jpg"
+        "image_url": "img/tomato.jpg"
     }
 ]
